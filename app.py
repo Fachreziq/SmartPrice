@@ -8,8 +8,8 @@ import os
 app = Flask(__name__)
 
 # Memuat model Decision Tree Model B
-MODEL_PATH = "/content/decision_tree_model_B.joblib"
-bundle = joblib.load(MODEL_PATH)
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+MODEL_PATH = os.path.join(BASE_DIR, "decision_tree_model_B.joblib")
 
 model = bundle["model"]
 features = bundle["features"]
