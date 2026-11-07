@@ -9,7 +9,17 @@ app = Flask(__name__)
 
 # Memuat model Decision Tree Model B
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-MODEL_PATH = os.path.join(BASE_DIR, "decision_tree_model_B.joblib")
+
+MODEL_PATH = os.path.join(
+    BASE_DIR,
+    "decision_tree_model_B.joblib"
+)
+
+bundle = joblib.load(MODEL_PATH)
+
+model = bundle["model"]
+features = bundle["features"]
+defaults = bundle["defaults"]
 
 model = bundle["model"]
 features = bundle["features"]
