@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>SmartPrice | Smartphone Prediction</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+:root {
+    --navy: #101a35;
+    --blue: #3867f5;
+    --light: #f4f7fc;
+    --muted: #78849a;
+}
+
+* {
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    background: var(--light);
+    color: var(--navy);
+}
+
+.navbar {
+    background: white;
+    border-bottom: 1px solid #e9edf5;
+    padding: 17px 0;
+}
+
+.brand {
+    font-size: 22px;
+    font-weight: 800;
+    letter-spacing: -1px;
+}
+
+.brand span {
+    color: var(--blue);
+}
+
+.logo {
+    width: 38px;
+    height: 38px;
+    border-radius: 11px;
+    background: var(--blue);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+}
+
+.hero {
+    background: linear-gradient(120deg, #101a35, #233f85);
+    color: white;
+    border-radius: 22px;
+    padding: 42px;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero p {
+    color: #c5d2ef;
+    max-width: 600px;
+    line-height: 1.8;
+}
+
+.hero-tag {
+    background: rgba(255,255,255,.12);
+    padding: 8px 13px;
+    border-radius: 30px;
+    font-size: 12px;
+    display: inline-block;
+    margin-bottom: 18px;
+}
+
+.hero-circle {
+    position: absolute;
+    width: 250px;
+    height: 250px;
+    border: 1px solid rgba(255,255,255,.12);
+    border-radius: 50%;
+    right: -50px;
+    top: -90px;
+}
+
+.section-card {
+    background: white;
+    border: 1px solid #e9edf5;
+    border-radius: 18px;
+    padding: 26px;
+    margin-bottom: 22px;
+    box-shadow: 0 5px 25px rgba(20,40,80,.035);
+}
+
+.section-number {
+    background: #edf2ff;
+    color: var(--blue);
+    width: 38px;
+    height: 38px;
+    border-radius: 11px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+}
+
+.form-label {
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 9px;
+}
+
+.form-control {
+    border: 1px solid #e1e7f0;
+    border-radius: 10px;
+    padding: 12px;
+    font-size: 13px;
+}
+
+.form-control:focus {
+    border-color: var(--blue);
+    box-shadow: 0 0 0 3px rgba(56,103,245,.10);
+}
+
+.field-note {
+    font-size: 11px;
+    color: var(--muted);
+    margin-top: 5px;
+}
+
+.btn-predict {
+    background: var(--blue);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    padding: 16px;
+    font-weight: 700;
+    transition: .2s;
+}
+
+.btn-predict:hover {
+    background: #244fd3;
+    color: white;
+    transform: translateY(-2px);
+}
+
+.result-card {
+    background: linear-gradient(135deg, #edf3ff, #f7f9ff);
+    border: 1px solid #dce7ff;
+    border-radius: 18px;
+    padding: 30px;
+    text-align: center;
+}
+
+.result-label {
+    color: var(--blue);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.result-value {
+    font-size: 32px;
+    font-weight: 800;
+    margin: 12px 0;
+}
+
+.info-card {
+    background: white;
+    border: 1px solid #e9edf5;
+    padding: 22px;
+    border-radius: 16px;
+    height: 100%;
+}
+
+.info-card small {
+    color: var(--muted);
+}
+
+footer {
+    color: var(--muted);
+    font-size: 12px;
+    text-align: center;
+    padding: 35px 0;
+}
+
+@media(max-width: 768px) {
+    .hero {
+        padding: 28px 22px;
+    }
+
+    .hero h1 {
+        font-size: 27px;
+    }
+
+    .section-card {
+        padding: 19px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<nav class="navbar">
+<div class="container d-flex justify-content-between align-items-center">
+    <div class="d-flex align-items-center gap-2">
+        <div class="logo">SP</div>
+        <div class="brand">Smart<span>Price.</span></div>
+    </div>
+    <span class="text-secondary small fw-semibold">
+        SMARTPHONE ANALYTICS
+    </span>
+</div>
+</nav>
+
+<main class="container py-4 py-md-5">
+
+    <section class="hero mb-4 mb-md-5">
+        <div class="hero-circle"></div>
+        <div class="position-relative">
+            <span class="hero-tag">MACHINE LEARNING · DECISION TREE</span>
+
+            <h1 class="fw-bold display-6 mb-3">
+                Smartphone Price<br>Prediction System
+            </h1>
+
+            <p class="mb-0">
+                Analisis dan prediksi kategori harga smartphone
+                berdasarkan spesifikasi perangkat menggunakan
+                algoritma Decision Tree Model B.
+            </p>
+        </div>
+    </section>
+
+    <div class="row g-3 mb-4">
+        <div class="col-md-4">
+            <div class="info-card">
+                <small>Algoritma</small>
+                <h5 class="fw-bold mt-2 mb-0">Decision Tree</h5>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="info-card">
+                <small>Jumlah Fitur</small>
+                <h5 class="fw-bold mt-2 mb-0">20 Features</h5>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="info-card">
+                <small>Kategori Prediksi</small>
+                <h5 class="fw-bold mt-2 mb-0">4 Classes</h5>
+            </div>
+        </div>
+    </div>
+
+    <div class="section-card">
+
+        <div class="mb-4">
+            <h4 class="fw-bold mb-2">Spesifikasi Smartphone</h4>
+            <p class="text-secondary small mb-0">
+                Lengkapi seluruh spesifikasi perangkat untuk
+                mendapatkan hasil klasifikasi harga.
+            </p>
+        </div>
+
+        <form method="POST">
+
+            {% set groups = [
+                ('01', 'Daya dan Performa', 'battery_power clock_speed n_cores talk_time mobile_wt'),
+                ('02', 'Memori dan Penyimpanan', 'ram int_memory'),
+                ('03', 'Layar dan Kamera', 'px_height px_width sc_h sc_w fc pc'),
+                ('04', 'Konektivitas', 'blue dual_sim four_g three_g wifi'),
+                ('05', 'Fitur Perangkat', 'm_dep touch_screen')
+            ] %}
+
+            {% for number, title, group_features in groups %}
+
+            <div class="mb-4">
+                <div class="d-flex align-items-center gap-3 mb-3">
+                    <div class="section-number">{{ number }}</div>
+                    <h6 class="fw-bold mb-0">{{ title }}</h6>
+                </div>
+
+                <div class="row g-3">
+
+                    {% for feature in group_features.split() %}
+                    <div class="col-md-6 col-lg-4">
+
+                        <label class="form-label">
+                            {{ feature.replace('_', ' ') | title }}
+                        </label>
+
+                        <input
+                            type="number"
+                            step="any"
+                            class="form-control"
+                            name="{{ feature }}"
+                            value="{{ input_values.get(feature, defaults[feature]) }}"
+                            placeholder="Masukkan {{ feature }}"
+                            required
+                        >
+
+                    </div>
+                    {% endfor %}
+
+                </div>
+            </div>
+
+            {% endfor %}
+
+            <div class="alert alert-light border small text-secondary">
+                Pastikan data spesifikasi yang dimasukkan sesuai
+                dengan informasi smartphone yang ingin diprediksi.
+            </div>
+
+            <button type="submit" class="btn btn-predict w-100">
+                ANALISIS & PREDIKSI HARGA
+                &nbsp; →
+            </button>
+
+        </form>
+
+        {% if prediction %}
+
+        <div class="result-card mt-4">
+            <div class="result-label">HASIL ANALISIS SMARTPRICE</div>
+            <div class="result-value">{{ prediction }}</div>
+
+            <p class="text-secondary small mb-2">
+                Kategori harga smartphone berdasarkan
+                Decision Tree Model B.
+            </p>
+
+            <span class="badge rounded-pill text-bg-primary">
+                Kelas {{ prediction_code }}
+            </span>
+        </div>
+
+        {% endif %}
+
+        {% if error %}
+        <div class="alert alert-danger mt-4">
+            <strong>Prediksi gagal!</strong><br>
+            {{ error }}
+        </div>
+        {% endif %}
+
+    </div>
+
+    <footer>
+        <div class="fw-bold mb-2">SmartPrice Prediction System</div>
+        Sistem klasifikasi harga smartphone menggunakan
+        algoritma Decision Tree Model B.
+        <br><br>
+        © 2026 SmartPrice. All Rights Reserved.
+    </footer>
+
+</main>
+
+</body>
+</html>
